@@ -18,6 +18,10 @@ const BubblePage = () => {
       .catch(err => console.log('Error getting colors', err))
   }, [])
 
+  if (colorList.length === 0) {
+    return 'Fetching Colors'
+  }
+
   return (
     <>
       <ColorList colors={colorList} updateColors={setColorList} />
