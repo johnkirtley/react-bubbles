@@ -13,13 +13,15 @@ const BubblePage = () => {
     axiosWithAuth()
       .get('/api/colors')
       .then(res => {
-        setColorList(res.data)
+        setTimeout(() => {
+          setColorList(res.data)
+        }, 2000)
       })
       .catch(err => console.log('Error getting colors', err))
-  }, [])
+  }, [colorList])
 
   if (colorList.length === 0) {
-    return 'Fetching Colors'
+    return `Loading Colors...`
   }
 
   return (
